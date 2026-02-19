@@ -10,15 +10,21 @@ tasks = []
 
 # Implement add_task function
 def add_task(title, description, due_date):
-    if not validate_task_title(title):
+    try:
+        validate_task_title(title)
+    except ValueError:
         print("Invalid task title.")
         return False
 
-    if not validate_task_description(description):
+    try:
+        validate_task_description(description)
+    except ValueError:
         print("Invalid task description.")
         return False
 
-    if not validate_due_date(due_date):
+    try:
+        validate_due_date(due_date)
+    except ValueError:
         print("Invalid due date. Use YYYY-MM-DD format.")
         return False
 
